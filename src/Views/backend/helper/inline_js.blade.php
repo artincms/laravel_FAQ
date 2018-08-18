@@ -27,7 +27,10 @@
             width: '25%',
             data: 'description',
             name: 'description',
-            title: 'توضیحات'
+            title: 'توضیحات',
+            mRender: function (data, type, full) {
+                return '<div class="text_over_flow">'+full.description+'</div>'
+            }
         },
         {
             width: '20%',
@@ -394,12 +397,9 @@
     });
     $(document).off('click', '.edit_faq_tab a');
     $(document).on('click', '.edit_faq_tab a', function () {
-        if (!init_summernote_for_add_faq) {
-            $('#faq_eidt_description').summernote({
-                height: 150,
-            });
-            init_summernote_for_add_faq = true;
-        }
+        $('#faq_eidt_description').summernote({
+            height: 150,
+        });
     });
     /*___________________________________________________DataTable_____________________________________________________________________*/
 

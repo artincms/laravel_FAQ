@@ -19,7 +19,8 @@
 
     },
     "require": {
-        "yajra/laravel-datatables-oracle": "~8.0"
+        "yajra/laravel-datatables-oracle": "~8.0",
+        "artincms/laravel_tagable": "dev-master"
     },
     "extra": {
         "laravel": {

@@ -1,19 +1,19 @@
 <template>
-        <div class="mix col-lg-12 card1 card inline_block" :class="'category-'+item.id" data-value="1"  data-bound="">
-            <div class="card-heading" :id="'heading'+item.id">
-                <h4 class="card-title">
-                    <a @click="activeIcon" :href="'#question'+item.id" data-toggle="collapse" :data-target="'#question'+item.id" aria-expanded="false" :aria-controls="'#question'+item.id" class="collapsed">
+        <div class="mix col-lg-12 panel panel-default" :class="'category-'+item.tags[0].id" :data-value="item.id"  data-bound="" style=" display:inline-block">
+            <div class="panel-heading" :id="'heading'+item.id">
+                <h4 class="panel-title">
+                    <a @click="activeIcon" :href="'#question'+item.id" data-toggle="collapse" data-parent="#faq" class="collapsed">
                         <strong class="c-gray-light">{{this.i}}.</strong>
                         {{this.item.title}}
-                        <span class="float-right">
-                            <i v-if="icon"  class="fa fa-plus"></i>
+                        <span class="pull-right">
+                            <i v-if="icon"  class="glyphicon glyphicon-plus"></i>
                             <i v-else  class="fa fa-minus"></i>
                         </span>
                     </a>
                 </h4>
             </div>
-            <div :id="'question'+item.id" class="collapse" :aria-labelledby="'heading'+item.id" data-parent="#faq" style="">
-                <div class="card-body" v-html="item.description">
+            <div :id="'question'+item.id"class="panel-collapse collapse">
+                <div class="panel-body" v-html="item.description">
                 </div>
             </div>
         </div>
@@ -30,7 +30,9 @@
             }
         },
         computed :{
-
+            sadeghi:function () {
+                return [1,2,3];
+            }
         },
         beforeCreate(){
             this.$parent.i++

@@ -3,6 +3,8 @@
 namespace ArtinCMS\FAQ\Controllers;
 
 use ArtinCMS\FAQ\Models\Faq;
+use ArtinCMS\LTS\Models\Tag;
+use ArtinCMS\LTS\Models\Tagable;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -21,7 +23,6 @@ class FaqController extends Controller
             $item->order = $i++;
             $item->save();
         }
-
         return $i;
     }
 
@@ -94,7 +95,7 @@ class FaqController extends Controller
             }
         }
         $Faq->save();
-        $res['tag'] = LTS_saveTag($Faq, $request->tag);
+        $res['tag'] = LTS_saveTag($Faq, $request->tag,'faq');
         $res =
             [
                 'success' => true,
@@ -119,7 +120,7 @@ class FaqController extends Controller
         $faq = Faq::find(FAQ_GetDecodeId($request->item_id));
         $faq->encode_id = FAQ_getEncodeId($faq->id);
         $tags = LTS_showTag($faq);
-        $Faq_form = view('laravel_faq::backend.view.edit', compact('faq', 'multiLang'))->render();
+        $Faq_form = view('laravel_faq::backend.view.edit', compact('faq', 'multiLang','tags'))->render();
         $res =
             [
                 'success'       => true,
@@ -153,6 +154,7 @@ class FaqController extends Controller
             }
         }
         $Faq->save();
+        $res['tag'] = LTS_saveTag($Faq, $request->tag,'faq','tags','sync');
         $res =
             [
                 'success' => true,
@@ -284,10 +286,14 @@ class FaqController extends Controller
     public function getFaqFront(Request $request)
     {
         $lang_id = $request->lang_id;
-        $faq = Faq::where('lang_id',$lang_id)->
+        $faq = Faq::with('tags')->where('lang_id',$lang_id)->
             where('is_active','1')->
             orderBy('order','asc')->get();
-        $result['item']=$faq;
+        $filters = Tag::with(['faqs' =>function($e){
+            $e->where('taggable_type','ArtinCMS\FAQ\Models\Faq');
+        }])->get();
+        $result['items']=$faq;
+        $result['filters']=$filters;
         return $result ;
     }
 }

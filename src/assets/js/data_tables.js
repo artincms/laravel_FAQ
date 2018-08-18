@@ -1,6 +1,27 @@
 var CommonDom_DataTables = '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>';
 var LangJson_DataTables = {
-
+    "decimal": "",
+    "emptyTable": "هیچ داده ای در جدول وجود ندارد",
+    "info": "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
+    "infoEmpty": "نمایش 0 تا 0 از 0 رکورد",
+    "infoFiltered": "(فیلتر شده از _MAX_ رکورد)",
+    "infoPostFix": "",
+    "thousands": ",",
+    "lengthMenu": "نمایش _MENU_ رکورد",
+    "loadingRecords": "در حال بارگزاری...",
+    "processing": "در حال پردازش...",
+    "search": "جستجو: ",
+    "zeroRecords": "رکوردی با این مشخصات پیدا نشد",
+    "paginate": {
+        "first": "ابتدا",
+        "last": "انتها",
+        "next": "بعدی",
+        "previous": "قبلی"
+    },
+    "aria": {
+        "sortAscending": ": فعال سازی نمایش به صورت صعودی",
+        "sortDescending": ": فعال سازی نمایش به صورت نزولی"
+    }
 };
 
 $.extend($.fn.dataTable.defaults, {
@@ -17,7 +38,7 @@ $.extend($.fn.dataTable.defaults, {
     }
 });
 
-function dataTablesGrid(selector, var_grid_name, url, columns, more_data,row_select, initComplete, scrollX, scrollY, scrollCollapse, orderBy, orderByDesc) {
+function dataTablesGrid(selector, var_grid_name, url, columns, more_data, initComplete, scrollX, scrollY, scrollCollapse, orderBy, orderByDesc, row_select,fixedColumns,start_item) {
     scrollX = scrollX || false;
     scrollY = scrollY || false;
     scrollCollapse = scrollCollapse || false;
@@ -25,6 +46,8 @@ function dataTablesGrid(selector, var_grid_name, url, columns, more_data,row_sel
     orderByDesc = orderByDesc || "desc";
     more_data = more_data || {};
     row_select = row_select || false;
+    start_item = start_item || 0 ;
+    fixedColumns = fixedColumns || false ;
     var columnDefs = [];
     window[var_grid_name + '_rows_selected'] = [];
     if (row_select) {
@@ -33,7 +56,7 @@ function dataTablesGrid(selector, var_grid_name, url, columns, more_data,row_sel
             searchable: false,
             orderable: false,
             width: '1%',
-            className: '',
+            className: 'dt-body-center',
             render: function (data, type, full, meta) {
                 return '<input type="checkbox">';
             }
@@ -61,6 +84,8 @@ function dataTablesGrid(selector, var_grid_name, url, columns, more_data,row_sel
                     });
                 }
             },
+            displayStart:start_item,
+            fixedColumns: fixedColumns,
             ajax: {
                 url: url,
                 type: 'POST',
@@ -74,13 +99,13 @@ function dataTablesGrid(selector, var_grid_name, url, columns, more_data,row_sel
             rowCallback: function (row, data, dataIndex) {
                 if (row_select) {
                     var rowId = data;
-                    //console.log(data,'-----',window[var_grid_name + '_rows_selected']);
-                    // If row ID is in the list of selected row IDs
-                    //console.log('id',data['id'],window[var_grid_name + '_rows_selected']);
-
+                    if (func_search_in_obj('id', data['id'], window[var_grid_name + '_rows_selected'])) {
+                        $(row).find('input[type="checkbox"]').prop('checked', true);
+                        $(row).addClass('selected');
+                    }
                 }
             },
-            destroy: true
+            destroy: true,
         };
 
     if(!scrollY)
@@ -96,7 +121,6 @@ function dataTablesGrid(selector, var_grid_name, url, columns, more_data,row_sel
             var $row = $(this).closest('tr');
             // Get row data
             var data = window[var_grid_name].row($row).data();
-            //console.log(data);
             // Get row ID
             //var rowId = data['id'];
             var rowId = data;
