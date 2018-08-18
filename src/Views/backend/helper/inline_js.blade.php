@@ -160,7 +160,8 @@
         datatable_load_fun();
         $(document).off('change', '.filter_is_active');
         $(document).on('change', '.filter_is_active', datatable_reload_fun);
-        $('.filter_lang ').on("select2:select", datatable_reload_fun);
+        $(document).off('select2:select', '.filter_lang');
+        $(document).on('select2:select', '.filter_lang', datatable_reload_fun);
         init_doAfterStopTyping('.filter_title', datatable_reload_fun);
 
         function datatable_reload_fun() {
