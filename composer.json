@@ -1,0 +1,31 @@
+{
+    "name": "artincms/laravel_faq",
+    "description": "Official ArtinCMS.com Laravel Comment Systems Package",
+    "keywords": ["laravel", "ArtinCMS", "Comment System", "storage", "artincms.com","آرتین سی ام اس"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adel.Raheli",
+            "email": "adel.raheli@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ArtinCMS\\FAQ\\": "src/"
+        },
+        "files": [
+            "src/Helpers/Functions/FAQ.php"
+        ]
+
+    },
+    "require": {
+        "yajra/laravel-datatables-oracle": "~8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ArtinCMS\\FAQ\\FAQServiceProvider"
+            ]
+        }
+    }
+}
