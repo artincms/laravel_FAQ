@@ -119,7 +119,7 @@ class FaqController extends Controller
         }
         $faq = Faq::find(FAQ_GetDecodeId($request->item_id));
         $faq->encode_id = FAQ_getEncodeId($faq->id);
-        $tags = LTS_showTag($faq);
+        $tags = LTS_showTag($faq,'faq');
         $Faq_form = view('laravel_faq::backend.view.edit', compact('faq', 'multiLang','tags'))->render();
         $res =
             [
