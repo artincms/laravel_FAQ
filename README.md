@@ -18,6 +18,11 @@ Laravel 5.5|5.6
  <div class="highlight highlight-text-html-php"><pre>
  $ php artisan vendor:publish --provider=ArtinCMS\FAQ\FAQServiceProvider --force
 </pre> </div>
+this package use laravel taggable system for use this package you should 
+publish laravel taggable system with bellow command
+<div class="highlight highlight-text-html-php"><pre>
+ $ php artisan vendor:publish --provider=ArtinCMS\LTS\LTSServiceProvider --force
+</pre> </div>
 <h6>migrate tabales</h6>
 <div class="highlight highlight-text-html-php"><pre>
 $ php artisan migrate
