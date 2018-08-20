@@ -37,7 +37,6 @@ class FaqController extends Controller
         {
             $multiLang = false;
         }
-
         return view('laravel_faq::backend.index', compact('multiLang'));
     }
 

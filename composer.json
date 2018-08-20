@@ -14,7 +14,7 @@
             "ArtinCMS\\FAQ\\": "src/"
         },
         "files": [
-            "src/Helpers/Functions/FAQ.php"
+            "src/Helpers/Functions/Faq.php"
         ]
 
     },

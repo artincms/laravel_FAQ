@@ -37,6 +37,12 @@ if (!function_exists('faq_sampleLang'))
     }
 }
 
+function sampleFaq()
+{
+    $lang = \App\Language::all()->toArray() ;
+    return $lang ;
+}
+
 function FAQ_getEncodeId($id)
 {
     if ($id < 0)
