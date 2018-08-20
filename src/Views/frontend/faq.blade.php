@@ -12,7 +12,7 @@
                     <div class="panel-group panel-accordion faq-accordion">
                         <div id="faq">
                             @foreach($items as $item)
-                            <div class="mix col-lg-12 panel panel-default category-{{$item['tags'][0]['id']}}" style=" display:inline-block">
+                            <div class="mix col-lg-12 panel panel-default" style=" display:inline-block">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a href="#question{{$item['id']}}" data-toggle="collapse" data-parent="#faq" class="collapsed">
