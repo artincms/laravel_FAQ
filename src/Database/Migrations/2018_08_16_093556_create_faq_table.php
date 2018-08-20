@@ -24,8 +24,6 @@ class CreateFaqTable extends Migration
             $table->integer('created_by')->unsigned()->default(0);
             $table->timestamps();
             $table->softDeletes();
-
-            $table->timestamps();
         });
     }
 
