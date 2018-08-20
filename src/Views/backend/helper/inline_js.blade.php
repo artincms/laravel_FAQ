@@ -201,6 +201,8 @@
                 $('#frm_create_faq .total_loader').remove();
                 if (data.success) {
                     clear_form_elements('#frm_create_faq');
+                    var form_element = $("#frm_create_faq");
+                    form_element.find('select').val('').trigger('change');
                     menotify('success', data.title, data.message);
                     FaqManagerGridData.ajax.reload(null, false);
                     $('a[href="#manage_tab"]').click();

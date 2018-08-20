@@ -20,7 +20,7 @@ class CreateFaqTable extends Migration
             $table->integer('lang_id')->unsigned()->default(0);
             $table->string('lang_name', 255)->nullable()->default(null);
             $table->integer('order')->default(0);
-            $table->enum('is_active', array('0','1'))->default('0');
+            $table->enum('is_active', array('0','1'))->default('1');
             $table->integer('created_by')->unsigned()->default(0);
             $table->timestamps();
             $table->softDeletes();

@@ -37,6 +37,7 @@ class FaqController extends Controller
         {
             $multiLang = false;
         }
+
         return view('laravel_faq::backend.index', compact('multiLang'));
     }
 
@@ -101,7 +102,6 @@ class FaqController extends Controller
                 'title'   => "ثبت سوالات متداول جدید",
                 'message' => 'سوالات متداول با موفقیت ثبت شد.'
             ];
-
         return $res;
     }
 
