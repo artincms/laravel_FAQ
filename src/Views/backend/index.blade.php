@@ -6,9 +6,7 @@
 @endsection
 @section('content')
     <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header text-center">مدیریت سوالات متداول</div>
-            <div class="card-body">
+            <div class="cards-body">
                 <div class="tabbable">
                     <ul class="nav nav-tabs nav-tabs-bottom" id="faq_tab" role="tablist">
                         <li class="nav-item"><a class="nav-link active" href="#manage_tab" data-toggle="tab"><i class="fas fa-th-list"></i><span class="margin_right_5">مدیریت </span></a></li>
@@ -120,7 +118,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 @section('inline_js')
     @include('laravel_faq::backend.helper.inline_js')
