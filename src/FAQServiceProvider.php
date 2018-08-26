@@ -42,6 +42,13 @@ class FAQServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/Components' => resource_path('assets/js/components/laravel_faq'),
         ]);
+        // publish language
+        $this->publishes([
+            __DIR__ . '/Lang/En/faq.php' => resource_path('lang/en/faq.php'),
+        ]);
+        $this->publishes([
+            __DIR__ . '/Lang/Fa/faq.php' => resource_path('lang/fa/faq.php'),
+        ]);
     }
 
     /**

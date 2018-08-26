@@ -113,5 +113,10 @@ function createTemplate($lang_id)
     $result= view("laravel_faq::frontend.faq", compact('items','filters'))->render();
     return $result ;
 }
-
+function createFaqBackendTemp()
+{
+    $src = route('FAQ.manageFaq');
+    $html = '<iframe style="width:100%;height: calc(100vh - 51px);    max-height: calc(100vh - 50px);    border: none;" id="modalIframeShowReplyComment" src="'.$src.'"></iframe>';
+    return $html ;
+}
 ?>

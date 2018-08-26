@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import axios from '../../../../../public/vendor/laravel_gallery_system/packages/axios/index.js'
+    import axios from '../../../../../public/vendor/laravel_faq/packages/axios/index.js'
     import showItem from './show_item'
     export default {
         name: "laravel_faq",

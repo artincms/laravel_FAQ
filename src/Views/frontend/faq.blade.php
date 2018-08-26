@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12 col-12 col-lg-12 col-sm-12">
             <div class="control-bar sandbox-control-bar mt10">
-                <span class="btn btn-primary mr10 mb10 filter" data-filter="all">All</span>
+                <span class="btn btn-primary mr10 mb10 filter" data-filter="all">@lang('laravel_gallery_system.all')</span>
                 @foreach($filters as $filter)
                 @if(isset($filter['faqs']))
                     @if(count($filter['faqs'])>0)

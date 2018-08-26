@@ -1,0 +1,82 @@
+{
+  "_from": "vue-flux",
+  "_id": "vue-flux@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-zyQ6JBVFlFlap2aWbk9lRxnsZMkXrkERAQhxENlOXmtDOBcGRCf0AXiGM2G9/bOcnuOcCjfSDuYTnrd2f99Icg==",
+  "_location": "/vue-flux",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-flux",
+    "name": "vue-flux",
+    "escapedName": "vue-flux",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-flux/-/vue-flux-1.0.0.tgz",
+  "_shasum": "49abef1732edd97ff3eee60d6e225e169491e71d",
+  "_spec": "vue-flux",
+  "_where": "E:\\sadeghi\\sadeghi\\blog",
+  "author": {
+    "name": "ragnar lotus"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "bugs": {
+    "url": "https://github.com/deulos/vue-flux/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
+  "deprecated": false,
+  "description": "Vue image slider",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.16",
+    "@vue/cli-service": "^3.0.0-beta.16",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "homepage": "https://github.com/deulos/vue-flux",
+  "keywords": [
+    "vue",
+    "image",
+    "slider"
+  ],
+  "license": "MIT",
+  "main": "dist/vue-flux.min.js",
+  "name": "vue-flux",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deulos/vue-flux.git"
+  },
+  "scripts": {
+    "build-docs": "vue-cli-service build --dest docs",
+    "bundle": "vue-cli-service build --target wc --name vue-flux \"src/components/*.vue\"",
+    "serve": "vue-cli-service serve"
+  },
+  "version": "1.0.0",
+  "vue": {
+    "baseUrl": "/vue-flux/"
+  }
+}
