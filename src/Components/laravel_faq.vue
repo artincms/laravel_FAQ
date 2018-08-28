@@ -4,7 +4,7 @@
             <div class="col-md-12 col-12 col-lg-12 col-sm-12">
                 <div class="control-bar sandbox-control-bar mt10">
                     <span class="btn btn-primary mr10 mb10 filter" data-filter="all">All</span>
-                    <span v-for="filter in filters" class="btn btn-primary mr10 mb10 filter" :data-filter="'.category-'+filter.id">{{filter.title}}</span>
+                    <span v-for="filter in filters" class="btn btn-primary mr10 mb10 filter" @click="filterData(filter.id)" :data-filter="'.category-'+filter.id">{{filter.title}}</span>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import axios from '../../../../../public/vendor/laravel_faq/packages/axios/index.js'
+    import axios from '../../../../../public/vendor/laravel_gallery_system/packages/axios/index.js'
     import showItem from './show_item'
     export default {
         name: "laravel_faq",
@@ -52,10 +52,6 @@
                                if(obj.id == vm.tag_id)
                                {
                                    return item ;
-                               }
-                               else
-                               {
-                                   return [] ;
                                }
                            });
                            return data

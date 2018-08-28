@@ -186,7 +186,7 @@
         },
     };
     var create_faq_form_id = document.querySelector("#frm_create_faq");
-    init_validatejs(create_faq_form_id, create_faq_constraints, ajax_func_create_faq);
+    init_validatejs(create_faq_form_id, create_faq_constraints, ajax_func_create_faq,"#frm_create_faq",'.add_submit_buttons');
 
     function ajax_func_create_faq(formElement) {
         var formData = new FormData(formElement);
@@ -242,7 +242,7 @@
                     $('a[href="#edit_faq"]').click();
 
                     var edit_faq_form_id = document.querySelector("#frm_edit_faq");
-                    init_validatejs(edit_faq_form_id, create_faq_constraints, ajax_func_edit_faq);
+                    init_validatejs(edit_faq_form_id, create_faq_constraints, ajax_func_edit_faq,"#frm_edit_faq",'.edit_submit_buttons');
                 }
                 else {
                 }
