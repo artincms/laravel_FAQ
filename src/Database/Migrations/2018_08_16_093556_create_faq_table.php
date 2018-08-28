@@ -16,7 +16,7 @@ class CreateFaqTable extends Migration
         Schema::create('faq_manager', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 255);
-            $table->string('description', 1000)->nullable()->default(null);
+            $table->longText('description')->nullable()->default(null);
             $table->integer('lang_id')->unsigned()->default(0);
             $table->string('lang_name', 255)->nullable()->default(null);
             $table->integer('order')->default(0);
