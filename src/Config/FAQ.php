@@ -13,7 +13,7 @@ return [
     // ======================================================================
     //allow user to upload private file in filemanager
     'userModel'=>'App\User',
-    'multiLang'=>'faq_sampleLang'
+    'multiLang'=> env('LPM_MULTILANG', 'faq_sampleLang'),
 
 
 
