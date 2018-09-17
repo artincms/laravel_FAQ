@@ -29,10 +29,23 @@ $ php artisan migrate
 </pre> </div>
 
 <h1>usage</h1> 
-for use this package in frontend of site you can use below 
-helper function 
-<div class="highlight highlight-text-html-php"><pre>
-createTemplate($lang_id)
-</pre> </div>
-that $lang_id is your language id that use .
+<h3>Frontend</h3>
+this package use vue js in frontend . for use this package at first you should 
+add bellow javascript 
+
+```apple js
+    <script src="{{ asset('vendor/laravel_faq/components/faq_b_4.min.js') }}" defer></script>
+
+```
+
+and for create html element you can use bellow html code : 
+```apple js
+<div id="faq_temp">
+    <laravel_faq lang_id=1 :rtl=true></laravel_faq>
+</div>
+```
+that lang_id is id of language you use and rtl is true or false that true meen 
+direction of site is rtl and false meen direction of site is ltr
+
+
 
