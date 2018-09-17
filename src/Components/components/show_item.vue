@@ -1,5 +1,5 @@
 <template>
-        <div class="mix col-lg-12 panel panel-default" :class="'category-'+item.tags[0].id" :data-value="item.id"  data-bound="" style=" display:inline-block">
+        <div class="mix col-lg-12 panel panel-default"  :data-value="item.id"  data-bound="" style=" display:inline-block">
             <div class="panel-heading" :id="'heading'+item.id">
                 <h4 class="panel-title">
                     <a @click="activeIcon" :href="'#question'+item.id" data-toggle="collapse" data-parent="#faq" class="collapsed">

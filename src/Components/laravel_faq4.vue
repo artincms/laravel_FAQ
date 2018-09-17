@@ -1,13 +1,13 @@
 <template>
-        <div class="row my-3">
+        <div class="my-3" :class="dClass">
             <div class="col-md-12 col-12 col-lg-12 col-sm-12">
-                <div class="control-bar sandbox-control-bar mt10">
-                    <span class="btn btn-primary mr10 mb10 filter" data-filter="all">All</span>
-                    <span v-for="filter in filters" class="btn btn-primary mr10 mb10 filter" :data-filter="'.category-'+filter.id">{{filter.title}}</span>
-            </div>
-                <div class="card card_collapse">
-                    <div class="card-body">
-                        <div class="panel-group panel-accordion faq-accordion">
+                <!--<div class="control-bar sandbox-control-bar mt10">-->
+                    <!--<span class="btn btn-primary mr10 faq_mb10 filter" data-filter="all">All</span>-->
+                    <!--<span v-for="filter in filters" class="btn btn-primary mr10 faq_mb10 filter" :data-filter="'.category-'+filter.id">{{filter.title}}</span>-->
+                <!--</div>-->
+                <div class="faq_card card_collapse">
+                    <div class="faq_card_body">
+                        <div class="faq_card_group">
                             <div id="faq">
                                 <show-item v-for=" (item, index) in filteredfaq" :key="index" :item="item"></show-item>
                             </div>
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-    import axios from '../../../../../public/vendor/laravel_gallery_system/packages/axios/index.js'
-    import showItem from './show_item'
+    window.axios = require('axios');
+    import showItem from './components/show_item_4'
     export default {
         name: "laravel_faq",
-        props:['direction','lang_id'],
+        props:['lang_id','rtl'],
         data: function () {
             return {
                 items :[],
@@ -61,6 +61,16 @@
 
                     });
                 }
+            },
+            dClass:function () {
+                if (this.rtl)
+                {
+                    return 'rtl'
+                }
+                else
+                {
+                    return 'ltr'
+                }
             }
         },
         methods: {
@@ -85,28 +95,8 @@
 </script>
 
 <style scoped>
-    .panel-heading span {
-        margin-top: 1px;
-        font-size: 12px;
-    }
-    .mb10{margin-bottom:10px !important}
-    .mt10{margin-top: 10px !important}
-    .mix{position:relative;display:none;font-weight:400;color:#777;height:auto;overflow:visible}
-
-    .panel{
-        width:100%;
-    }
-    .glyphicon{
-        font-weight: lighter;
-    }
+    @import  './assets/fonts/icon/style.css';
+    @import  './assets/css/faq.css';
 
 
-    a:link, a:link, a:visited, a:hover, a:active {
-        color: #757b87;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    .margin_10{
-        margin: 5px;
-    }
 </style>
