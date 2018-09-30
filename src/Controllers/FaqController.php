@@ -28,17 +28,17 @@ class FaqController extends Controller
 
     public function manageFaq()
     {
-        $multiLangFunc = config('laravel_faq.multiLang');
-        if ($multiLangFunc)
+        $multi_langFunc = config('laravel_faq.multi_lang');
+        if ($multi_langFunc)
         {
-            $multiLang = json_encode($multiLangFunc());
+            $multi_lang = json_encode($multi_langFunc());
         }
         else
         {
-            $multiLang = false;
+            $multi_lang = false;
         }
 
-        return view('laravel_faq::backend.index', compact('multiLang'));
+        return view('laravel_faq::backend.index', compact('multi_lang'));
     }
 
     public function getFaq(Request $request)
@@ -80,9 +80,9 @@ class FaqController extends Controller
         if ($request->lang_id)
         {
             $lang_id = $request->lang_id;
-            $multiLang = config('laravel_faq.multiLang')();
+            $multi_lang = config('laravel_faq.multi_lang')();
             $Faq->lang_id = $lang_id;
-            $lang_title = $this->searchForId($lang_id, $multiLang);
+            $lang_title = $this->searchForId($lang_id, $multi_lang);
             $Faq->lang_name = $lang_title;
         }
         $Faq->title = $request->title;
@@ -107,19 +107,19 @@ class FaqController extends Controller
 
     public function getEditFaqForm(Request $request)
     {
-        $multiLangFunc = config('laravel_faq.multiLang');
-        if ($multiLangFunc)
+        $multi_langFunc = config('laravel_faq.multi_lang');
+        if ($multi_langFunc)
         {
-            $multiLang = json_encode($multiLangFunc());
+            $multi_lang = json_encode($multi_langFunc());
         }
         else
         {
-            $multiLang = false;
+            $multi_lang = false;
         }
         $faq = Faq::find(FAQ_GetDecodeId($request->item_id));
         $faq->encode_id = FAQ_getEncodeId($faq->id);
         $tags = LTS_showTag($faq,'faq');
-        $Faq_form = view('laravel_faq::backend.view.edit', compact('faq', 'multiLang','tags'))->render();
+        $Faq_form = view('laravel_faq::backend.view.edit', compact('faq', 'multi_lang','tags'))->render();
         $res =
             [
                 'success'       => true,
@@ -138,9 +138,9 @@ class FaqController extends Controller
         if ($request->lang_id)
         {
             $lang_id = $request->lang_id;
-            $multiLang = config('laravel_faq.multiLang')();
+            $multi_lang = config('laravel_faq.multi_lang')();
             $Faq->lang_id = $lang_id;
-            $lang_title = $this->searchForId($lang_id, $multiLang);
+            $lang_title = $this->searchForId($lang_id, $multi_lang);
             $Faq->lang_name = $lang_title;
         }
         $Faq->title = $request->title;

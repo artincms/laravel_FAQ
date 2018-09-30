@@ -1,6 +1,6 @@
 <div class="space-20"></div>
 <form id="frm_edit_faq" class="form-horizontal" name="frm_edit_faq">
-    @if($multiLang)
+    @if($multi_lang)
     <div class="form-group row fg_lang">
         <label class="col-sm-2 control-label col-form-label label_post" for="lang">
             <span class="more_info"></span>
@@ -56,7 +56,7 @@
 
 <script>
     init_select2_ajax('#showSelectTagEdit', '{{route('LTS.autoCompleteTag')}}', true,true);
-    init_select2_data('#FaqSelectLangEdit',{!! $multiLang !!});
+    init_select2_data('#FaqSelectLangEdit',{!! $multi_lang !!});
 
 </script>
 

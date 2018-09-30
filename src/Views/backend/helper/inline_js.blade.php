@@ -286,7 +286,7 @@
         $('#edit_faq').html('');
     });
     /*___________________________________________________init select2_____________________________________________________________________*/
-    init_select2_data('#FaqSelectLang',{!! $multiLang !!});
+    init_select2_data('#FaqSelectLang',{!! $multi_lang !!});
     /*___________________________________________________Trash faq_____________________________________________________________________*/
 
     $(document).off("click", ".btn_trash_faq");
@@ -450,7 +450,7 @@
             '    <td style="border: none; border-bottom: 1px lightgray solid;">&nbsp;</td>' +
             '</tr>'
         );
-        init_select2_data('.filter_lang',{!! $multiLang !!});
+        init_select2_data('.filter_lang',{!! $multi_lang !!});
     }
 
     //--------------------------------------------tag select----------------------------------------------

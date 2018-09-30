@@ -3,17 +3,15 @@
 return [
 
     /* Important Settings */
-    'backend_faq_middlewares' => ['web'],
-    'frontend_faq_middlewares' => ['web'],
+    'backend_faq_middlewares' => env('BACKEND_FAQ_MIDDLEWARES', 'web'),
+    'frontend_faq_middlewares' =>  env('FRONTEND_FAQ_MIDDLEWARES', 'web'),
     // you can change default route from sms-admin to anything you want
-    'backend_faq_route_prefix' => 'FAQ',
-    'frontend_faq_route_prefix' => 'FAQ',
-    // SMS.ir Api Key
-    'api-key' => env('SMSIR-API-KEY','Your api key'),
+    'backend_faq_route_prefix' => env('BACKEND_FAQ_ROUTE_PERFIX', 'FAQ'),
+    'frontend_faq_route_prefix' =>env('FRONTEND_FAQ_ROUTE_PERFIX', 'FAQ'),
     // ======================================================================
     //allow user to upload private file in filemanager
-    'userModel'=>'App\User',
-    'multiLang'=> env('LPM_MULTILANG', 'faq_sampleLang'),
+    'user_model'                => env('FAQ_USER_MODEL', 'App\User'),
+    'multi_lang'                => env('FAQ_MULTI_LANG', 'faq_sampleLang'),
 
 
 

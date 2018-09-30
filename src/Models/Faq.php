@@ -9,7 +9,7 @@ class Faq extends Model
     protected $table = 'faq_manager';
     public function user()
     {
-        return $this->belongsTo(config('laravel_tagable.userModel'), 'created_by');
+        return $this->belongsTo(config('laravel_tagable.user_model'), 'created_by');
     }
 
     public function tags()

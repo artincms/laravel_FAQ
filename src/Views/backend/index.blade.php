@@ -35,7 +35,7 @@
                         <div class="tab-pane" id="add_faq">
                             <div class="space-20"></div>
                             <form id="frm_create_faq" class="form-horizontal" name="frm_create_faq">
-                                @if($multiLang)
+                                @if($multi_lang)
                                     <div class="form-group row fg_lang">
                                         <label class="col-sm-2 control-label col-form-label label_post" for="lang">
                                             <span class="more_info"></span>
