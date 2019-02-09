@@ -289,7 +289,7 @@ class FaqController extends Controller
             where('is_active','1')->
             orderBy('order','asc')->get();
         $filters = Tag::with(['faqs' =>function($e){
-            $e->where('taggable_type','ArtinCMS\FAQ\Models\Faq');
+            $e->where('tagable_type','ArtinCMS\FAQ\Models\Faq');
         }])->get();
         $result['items']=$faq;
         $result['filters']=$filters;
