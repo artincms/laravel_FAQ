@@ -3,9 +3,11 @@
 namespace ArtinCMS\FAQ\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Faq extends Model
 {
+    use softDeletes;
     protected $table = 'faq_manager';
     public function user()
     {
